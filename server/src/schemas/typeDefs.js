@@ -1,52 +1,10 @@
-import { gql } from 'apollo-server-express';
-const typeDefs = gql `
-  # User type definition
-  type User {
-    _id: ID!
-    username: String!
-    email: String!
-    bookCount: Int
-    savedBooks: [Book]
-  }
-
-  # Book type definition
-  type Book {
-    bookId: ID!
-    authors: [String]!
-    description: String
-    title: String!
-    image: String
-    link: String
-  }
-
-  # Auth type definition for login and signup
-  type Auth {
-    token: ID!
-    user: User
-  }
-
-  # Input type for saving a book
-  input BookInput {
-    authors: [String]!
-    description: String
-    title: String!
-    bookId: ID!
-    image: String
-    link: String
-  }
-
-  # Query type definition
-  type Query {
-    me: User
-    getSingleUser(id: ID, username: String): User
-  }
-
-  # Mutation type definition
-  type Mutation {
-    login(username: String, email: String, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!): Auth
-    saveBook(bookInput: BookInput!): User
-    removeBook(bookId: ID!): User
-  }
-`;
-export default typeDefs;
+"use strict";
+var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var apollo_server_express_1 = require("apollo-server-express");
+var typeDefs = (0, apollo_server_express_1.gql)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  # User type definition\n  type User {\n    _id: ID!\n    username: String!\n    email: String!\n    bookCount: Int\n    savedBooks: [Book]\n  }\n\n  # Book type definition\n  type Book {\n    bookId: ID!\n    authors: [String]!\n    description: String\n    title: String!\n    image: String\n    link: String\n  }\n\n  # Auth type definition for login and signup\n  type Auth {\n    token: ID!\n    user: User\n  }\n\n  # Input type for saving a book\n  input BookInput {\n    authors: [String]!\n    description: String\n    title: String!\n    bookId: ID!\n    image: String\n    link: String\n  }\n\n  # Query type definition\n  type Query {\n    me: User\n    getSingleUser(id: ID, username: String): User\n  }\n\n  # Mutation type definition\n  type Mutation {\n    login(username: String, email: String, password: String!): Auth\n    addUser(username: String!, email: String!, password: String!): Auth\n    saveBook(bookInput: BookInput!): User\n    removeBook(bookId: ID!): User\n  }\n"], ["\n  # User type definition\n  type User {\n    _id: ID!\n    username: String!\n    email: String!\n    bookCount: Int\n    savedBooks: [Book]\n  }\n\n  # Book type definition\n  type Book {\n    bookId: ID!\n    authors: [String]!\n    description: String\n    title: String!\n    image: String\n    link: String\n  }\n\n  # Auth type definition for login and signup\n  type Auth {\n    token: ID!\n    user: User\n  }\n\n  # Input type for saving a book\n  input BookInput {\n    authors: [String]!\n    description: String\n    title: String!\n    bookId: ID!\n    image: String\n    link: String\n  }\n\n  # Query type definition\n  type Query {\n    me: User\n    getSingleUser(id: ID, username: String): User\n  }\n\n  # Mutation type definition\n  type Mutation {\n    login(username: String, email: String, password: String!): Auth\n    addUser(username: String!, email: String!, password: String!): Auth\n    saveBook(bookInput: BookInput!): User\n    removeBook(bookId: ID!): User\n  }\n"])));
+exports.default = typeDefs;
+var templateObject_1;
