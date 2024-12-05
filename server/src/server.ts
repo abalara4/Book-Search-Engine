@@ -4,6 +4,9 @@ import db from './config/connection.js';
 import routes from './routes/index.js';
 import { ApolloServer } from 'apollo-server-express';
 import { typeDefs, resolvers } from './schemas/index.js';
+import { fileURLToPath } from 'node:url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -15,6 +18,7 @@ const server = new ApolloServer({
     // You can add authentication context here if needed
     return { user: req.user }; // Pass user info from middleware if applicable
   },
+  cache: "bounded",
 });
 
 app.use(express.urlencoded({ extended: true }));
@@ -22,7 +26,7 @@ app.use(express.json());
 
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
+  app.use(express.static(path.join(__dirname, '../../client/dist')));
 }
 
 app.use(routes);

@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "server/src/server.ts",
+    "start": "node dist/server.js",
     "watch": "nodemon dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,9 +14,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "apollo-server-express": "^3.13.0",
     "bcrypt": "^4.0.1",
     "brcypt": "^1.0.1",
     "express": "^4.19.2",
+    "graphql": "^16.9.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^8.0.0"
   },
